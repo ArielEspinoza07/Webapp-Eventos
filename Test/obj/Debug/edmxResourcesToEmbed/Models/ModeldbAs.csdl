@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbASModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="idEvento" />
+    </Key>
+    <Property Name="idEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EventoMiembro" Relationship="Self.FK__EventoMie__event__1CF15040" FromRole="Evento" ToRole="EventoMiembro" />
+  </EntityType>
+  <EntityType Name="EventoMiembro">
+    <Key>
+      <PropertyRef Name="idEM" />
+    </Key>
+    <Property Name="idEM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="evento" Type="Int32" Nullable="false" />
+    <Property Name="miembro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="usuario" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="Int32" />
+    <NavigationProperty Name="Evento1" Relationship="Self.FK__EventoMie__event__1CF15040" FromRole="EventoMiembro" ToRole="Evento" />
+    <NavigationProperty Name="Miembro1" Relationship="Self.FK__EventoMie__miemb__1BFD2C07" FromRole="EventoMiembro" ToRole="Miembro" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.FK__EventoMie__usuar__1B0907CE" FromRole="EventoMiembro" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Miembro">
+    <Key>
+      <PropertyRef Name="numeroCedula" />
+    </Key>
+    <Property Name="idMiembro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nombre" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="numeroCedula" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="Int32" />
+    <Property Name="Confirmo" Type="Int32" />
+    <Property Name="Elimino" Type="Int32" />
+    <NavigationProperty Name="EventoMiembro" Relationship="Self.FK__EventoMie__miemb__1BFD2C07" FromRole="Miembro" ToRole="EventoMiembro" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="idPerfil" />
+    </Key>
+    <Property Name="idPerfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__perfil__1273C1CD" FromRole="Perfil" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="perfil" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EventoMiembro" Relationship="Self.FK__EventoMie__usuar__1B0907CE" FromRole="Usuario" ToRole="EventoMiembro" />
+    <NavigationProperty Name="Perfil1" Relationship="Self.FK__Usuario__perfil__1273C1CD" FromRole="Usuario" ToRole="Perfil" />
+  </EntityType>
+  <Association Name="FK__EventoMie__event__1CF15040">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+    <End Role="EventoMiembro" Type="Self.EventoMiembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="idEvento" />
+      </Principal>
+      <Dependent Role="EventoMiembro">
+        <PropertyRef Name="evento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventoMie__miemb__1BFD2C07">
+    <End Role="Miembro" Type="Self.Miembro" Multiplicity="0..1" />
+    <End Role="EventoMiembro" Type="Self.EventoMiembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Miembro">
+        <PropertyRef Name="numeroCedula" />
+      </Principal>
+      <Dependent Role="EventoMiembro">
+        <PropertyRef Name="miembro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventoMie__usuar__1B0907CE">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="EventoMiembro" Type="Self.EventoMiembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="EventoMiembro">
+        <PropertyRef Name="usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__perfil__1273C1CD">
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="idPerfil" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="perfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbASEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Evento" EntityType="Self.Evento" />
+    <EntitySet Name="EventoMiembro" EntityType="Self.EventoMiembro" />
+    <EntitySet Name="Miembro" EntityType="Self.Miembro" />
+    <EntitySet Name="Perfil" EntityType="Self.Perfil" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK__EventoMie__event__1CF15040" Association="Self.FK__EventoMie__event__1CF15040">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="EventoMiembro" EntitySet="EventoMiembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventoMie__miemb__1BFD2C07" Association="Self.FK__EventoMie__miemb__1BFD2C07">
+      <End Role="Miembro" EntitySet="Miembro" />
+      <End Role="EventoMiembro" EntitySet="EventoMiembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventoMie__usuar__1B0907CE" Association="Self.FK__EventoMie__usuar__1B0907CE">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="EventoMiembro" EntitySet="EventoMiembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__perfil__1273C1CD" Association="Self.FK__Usuario__perfil__1273C1CD">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce538af03e1f42598d938216980aeaa2" Name="Diagram1">
+        <EntityTypeShape EntityType="dbASModel.Evento" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbASModel.EventoMiembro" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbASModel.Miembro" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbASModel.Perfil" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbASModel.Usuario" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="dbASModel.FK__EventoMie__event__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="dbASModel.FK__EventoMie__miemb__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="dbASModel.FK__EventoMie__usuar__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="dbASModel.FK__Usuario__perfil__1273C1CD" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

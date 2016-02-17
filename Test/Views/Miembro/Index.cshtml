@@ -1,0 +1,115 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Test.Models.Miembro>
+
+@{
+    ViewBag.Title = "Miembros";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Miembros 
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i><a href="#">Panel Administracion</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-user"></i> Miembros
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-0">
+            <p><a href="/Miembro/create" class="btn btn-lg btn-info btn-block">Crear Nuevo</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().idMiembro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().numeroCedula)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().correo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().telefono)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Estado)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Confirmo)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.idMiembro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.numeroCedula)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.correo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.telefono)
+                            </td>
+                            <td>
+                                @if (item.Estado.Equals(1))
+                                {
+                                    <p>Activo</p>
+                                }
+                                else
+                                {
+                                    <p>Inactivo</p>
+                                }
+                            </td>
+                            <td>
+                                @if (item.Confirmo.Equals(1))
+                                {
+                                    <p>Confirmado</p>
+                                }
+                                else
+                                {
+                                    <p>No</p>
+                                }
+                            </td>
+                            <td>
+                                <i class="fa fa-edit"></i><a href="/Miembro/Edit/@item.numeroCedula">Edit</a>  |
+                                <i class="fa fa-list-alt"></i><a href="/Miembro/Details/@item.numeroCedula">Details</a> |
+                                <i class="fa fa-trash"></i><a href="/Miembro/Delete/@item.numeroCedula">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-4">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+</div>

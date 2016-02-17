@@ -1,0 +1,117 @@
+﻿@model Test.Models.Miembro
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Miembros
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i><a href="#">Panel Administracion</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-user"></i> Miembros
+                </li>
+                <li class="active">
+                    <i class="fa fa-pencil"></i> Create
+                </li>
+            </ol>
+        </div>
+    </div>
+
+  <div class="row">
+      <div class="col-lg-12">
+          @using (Html.BeginForm())
+          {
+              @Html.AntiForgeryToken()
+              @Html.ValidationSummary(true)
+
+              <fieldset>
+                  <legend>Miembro</legend>
+
+                  <div class="editor-label">
+                      @Html.LabelFor(model => model.idMiembro)
+                  </div>
+                  <div class="editor-field">
+                      @Html.TextBoxFor(model => model.idMiembro, new { @class = "form-control" })
+                      @Html.ValidationMessageFor(model => model.idMiembro)
+                  </div>
+
+                  <div class="editor-label">
+                      @Html.LabelFor(model => model.nombre)
+                  </div>
+                  <div class="editor-field">
+                      @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" })
+                      @Html.ValidationMessageFor(model => model.nombre)
+                  </div>
+
+                  <div class="editor-label">
+                      @Html.LabelFor(model => model.numeroCedula)
+                  </div>
+                  <div class="editor-field">
+                      @Html.TextBoxFor(model => model.numeroCedula, new { @class = "form-control" })
+                      @Html.ValidationMessageFor(model => model.numeroCedula)
+                  </div>
+
+                  <div class="editor-label">
+                      @Html.LabelFor(model => model.correo)
+                  </div>
+                  <div class="editor-field">
+                      @Html.TextBoxFor(model => model.correo, new { @class = "form-control" })
+                      @Html.ValidationMessageFor(model => model.correo)
+                  </div>
+
+                  <div class="editor-label">
+                      @Html.LabelFor(model => model.telefono)
+                  </div>
+                  <div class="editor-field">
+                      @Html.TextBoxFor(model => model.telefono, new { @class = "form-control" })
+                      @Html.ValidationMessageFor(model => model.telefono)
+                  </div>
+
+                  <div class="editor-label">
+                      @Html.LabelFor(model => model.Estado)
+                  </div>
+                  <div class="editor-field">
+                      @Html.EditorFor(model => model.Estado)
+                      @Html.ValidationMessageFor(model => model.Estado)
+                  </div>
+
+                  <div class="editor-label">
+                      @Html.LabelFor(model => model.Confirmo)
+                  </div>
+                  <div class="editor-field">
+                      @Html.EditorFor(model => model.Confirmo)
+                      @Html.ValidationMessageFor(model => model.Confirmo)
+                  </div>
+
+                  <div class="form-group"></div>
+
+                  <div class="row">
+                      <div class="col-lg-4 col-lg-offset-0">
+                          <p>
+                              <input type="submit" class="btn btn-lg btn-primary" value="Create" />
+                          </p>
+                      </div>
+                  </div>
+
+
+              </fieldset>
+          }
+
+          <div>
+              <a href="/Miembro" class="btn btn-lg btn-primary ">Back to list</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
