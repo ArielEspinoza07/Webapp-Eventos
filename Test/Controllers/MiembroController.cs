@@ -14,6 +14,22 @@ namespace Test.Controllers
     public class MiembroController : Controller
     {
         private dbASEntities db = new dbASEntities();
+
+        public MiembroController()
+        {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("/Home");
+            }
+            if (Session["Error"] != null)
+            {
+                Session.Remove("Error");
+            }
+            if (Session["Succes"] != null)
+            {
+                Session.Remove("Succes");
+            }
+        }
         //
         // GET: /Miembro/
 

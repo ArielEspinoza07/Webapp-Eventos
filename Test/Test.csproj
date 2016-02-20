@@ -292,6 +292,9 @@
     <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_Error.cshtml" />
+    <Content Include="Views\Shared\_Succes.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,0 +1,34 @@
+﻿@using Test.Models
+<ul class="nav navbar-nav side-nav">
+    @if (Session["Usuario"] != null)
+    {
+        Usuario user = (Usuario)Session["Usuario"];
+
+        if (user.Perfil1.idPerfil == 1)
+        {
+            <li class="">
+                <a href="/Usuario"><i class="fa fa-fw fa-users"></i> Usuarios</a>
+            </li>
+            <li>
+                <a href="/Evento"><i class="fa fa-fw fa-table"></i> Eventos</a>
+            </li>
+            <li>
+                <a href="/Miembro"><i class="fa fa-fw fa-users"></i> Miembros</a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-fw fa-check-circle"></i> Registrar Asistencia</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-fw fa-area-chart"></i> Reportes</a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href=""><i class="fa fa-fw fa-check-circle"></i> Registrar Asistencia</a>
+            </li>
+        }
+
+    }
+</ul>
+

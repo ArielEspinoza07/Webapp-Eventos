@@ -14,11 +14,27 @@ namespace Test.Controllers
     public class UsuarioController : Controller
     {
         private dbASEntities db = new dbASEntities();
+
+        public UsuarioController()
+        {
+            if(Session["Usuario"] == null){
+                Response.Redirect("/Home");
+            }
+            if (Session["Error"] != null)
+            {
+                Session.Remove("Error");
+            }
+            if (Session["Succes"] != null)
+            {
+                Session.Remove("Succes");
+            }
+        }
         //
         // GET: /Usuario/
 
         public ActionResult Index(int? page)
         {
+            
             return View(db.Usuario.ToList().ToPagedList(page ?? 1, 5));
         }
 

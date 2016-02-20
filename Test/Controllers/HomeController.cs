@@ -31,6 +31,7 @@ namespace Test.Controllers
 
             if (Convert.ToString(Usuario).Equals("") && Convert.ToString(Password).Equals(""))
             {
+                Session["Error"] = "Debe llenar los campos Usuario y Password";
                 Response.Redirect("Index");
             }
             else
@@ -42,8 +43,9 @@ namespace Test.Controllers
                 Usuario user = db.Usuario.Where(u => u.usuario1 == usuario.usuario1 && u.contrasena == usuario.contrasena).FirstOrDefault();
 
                 if(user != null){
+                    Session.RemoveAll();
                     Session["Usuario"] = user;
-
+                    Session["Succes"] = "Bienvenido " + user.nombre;
                     Response.Redirect("Dashboard");
                 }
                 else
