@@ -5,101 +5,102 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Miembros
-            </h1>
-            <ol class="breadcrumb">
-                <li>
-                    <i class="fa fa-dashboard"></i><a href="#">Panel Administracion</a>
-                </li>
-                <li class="active">
-                    <i class="fa fa-user"></i> Miembros
-                </li>
-                <li class="active">
-                    <i class="fa fa-pencil"></i> Details
-                </li>
-            </ol>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <fieldset>
-                <legend>Miembro</legend>
-
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.idMiembro)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.idMiembro)
-                </div>
-
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.nombre)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.nombre)
-                </div>
-
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.numeroCedula)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.numeroCedula)
-                </div>
-
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.correo)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.correo)
-                </div>
-
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.telefono)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.telefono)
-                </div>
-
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Estado)
-                </div>
-                <div class="display-field">
-                    @if (Model.Estado == 1)
-                    {
-                        <p>Activo</p>
-                    }
-                    else
-                    {
-                        <p>Inactivo</p>
-                    }
-                </div>
-
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Confirmo)
-                </div>
-                <div class="display-field">
-                    @if (Model.Confirmo == 1)
-                    {
-                        <p>Confirmado</p>
-                    }
-                    else
-                    {
-                        <p>No</p>
-                    }
-                </div>
-
-
-            </fieldset>
-            <p>
-                <a href="/Miembro/Edit/@Model.numeroCedula" class="btn btn-lg btn-primary ">Edit</a> |
-                <a href="/Miembro" class="btn btn-lg btn-primary ">Back to list</a>
-            </p>
-        </div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Miembros
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#">Panel Administracion</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-user"></i> Miembros
+            </li>
+            <li class="active">
+                <i class="fa fa-pencil"></i> Details
+            </li>
+        </ol>
     </div>
 </div>
+<div class="row">
+    <div class="col-lg-12">
+        <fieldset>
+            <legend>Miembro</legend>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.idMiembro)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.idMiembro)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.nombre)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.nombre)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.numeroCedula)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.numeroCedula)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.correo)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.correo)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.telefono)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.telefono)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Estado)
+            </div>
+            <div class="display-field">
+                @if (Model.Estado == 1)
+                {
+                    <p>Activo</p>
+                }
+                else
+                {
+                    <p>Inactivo</p>
+                }
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Confirmo)
+            </div>
+            <div class="display-field">
+                @if (Model.Confirmo == 1)
+                {
+                    <p>Confirmado</p>
+                }
+                else
+                {
+                    <p>No</p>
+                }
+            </div>
+
+
+        </fieldset>
+        <p>
+            <a href="/Miembro/Edit/@Model.numeroCedula" class="btn btn-lg btn-primary ">Edit</a> |
+            <a href="/Miembro" class="btn btn-lg btn-primary ">Back to list</a>
+        </p>
+    </div>
+</div>
+
+
+
 
 

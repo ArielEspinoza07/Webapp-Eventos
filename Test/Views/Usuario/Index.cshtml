@@ -7,80 +7,78 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Usuarios
-            </h1>
-            <ol class="breadcrumb">
-                <li>
-                    <i class="fa fa-dashboard"></i><a href="#">Panel Administracion</a>
-                </li>
-                <li class="active">
-                    <i class="fa fa-user"></i> Usuarios
-                </li>
-            </ol>
-        </div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Usuarios
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#">Panel Administracion</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-user"></i> Usuarios
+            </li>
+        </ol>
     </div>
-    <div class="row">
-        <div class="col-lg-4 col-lg-offset-0">
-            <p><a href="/Usuario/create" class="btn btn-lg btn-info btn-block">Crear Nuevo</a></p>
-        </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-0">
+        <p><a href="/Usuario/create" class="btn btn-lg btn-info btn-block">Crear Nuevo</a></p>
     </div>
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover">
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().idUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().usuario1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().contrasena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().perfil)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().idUsuario)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().usuario1)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().contrasena)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.First().perfil)
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.usuario1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contrasena)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perfil1.descripcion)
+                </td>
+                <td>
+                    <i class="fa fa-edit"></i><a href="/Usuario/Edit/@item.idUsuario">Edit</a>  |
+                    <i class="fa fa-list-alt"></i><a href="/Usuario/Details/@item.idUsuario">Details</a> |
+                    <i class="fa fa-trash"></i><a href="/Usuario/Delete/@item.idUsuario">Delete</a>
+                </td>
             </tr>
+        }
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.idUsuario)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.usuario1)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.contrasena)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Perfil1.descripcion)
-                    </td>
-                    <td>
-                        <i class="fa fa-edit"></i><a href="/Usuario/Edit/@item.idUsuario">Edit</a>  |
-                        <i class="fa fa-list-alt"></i><a href="/Usuario/Details/@item.idUsuario">Details</a> |
-                        <i class="fa fa-trash"></i><a href="/Usuario/Delete/@item.idUsuario">Delete</a>
-                    </td>
-                </tr>
-            }
-
-        </table>
-    </div>
-    <div class="row">
-        <div class="col-lg-6 col-lg-offset-4">
-            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-        </div>
+    </table>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-4">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
     </div>
 </div>
 

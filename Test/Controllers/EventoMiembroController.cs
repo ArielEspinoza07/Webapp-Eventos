@@ -11,21 +11,7 @@ namespace Test.Controllers
     {
         private dbASEntities db = new dbASEntities();
 
-        public EventoMiembroController()
-        {
-            if (Session["Usuario"] == null)
-            {
-                Response.Redirect("/Home");
-            }
-            if (Session["Error"] != null)
-            {
-                Session.Remove("Error");
-            }
-            if (Session["Succes"] != null)
-            {
-                Session.Remove("Succes");
-            }
-        }
+        
         //
         // GET: /EventoMiembro/
 
