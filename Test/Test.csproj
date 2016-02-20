@@ -164,6 +164,7 @@
     <Compile Include="Controllers\EventoMiembroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MiembroController.cs" />
+    <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -295,6 +296,7 @@
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_Error.cshtml" />
     <Content Include="Views\Shared\_Succes.cshtml" />
+    <Content Include="Views\Registro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
