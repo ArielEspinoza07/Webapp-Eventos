@@ -15,10 +15,10 @@ namespace Webapp_EventosTest
 
             //Act
             Test.Models.LeerExcel le = new Test.Models.LeerExcel();
-            int obtenido = le.countList();
+            List<Test.Models.Miembro> lm = le.readExcel();
 
             //Assert
-            Assert.AreEqual(total, obtenido);
+            Assert.AreEqual(total, lm.Count);
         }
     }
 }

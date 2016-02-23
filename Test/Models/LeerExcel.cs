@@ -12,6 +12,12 @@ namespace Test.Models
 {
     public class LeerExcel
     {
+        private int totalMiembros = 0;
+
+        public int miembros()
+        {
+            return this.totalMiembros;
+        }
         public  List<Miembro> readExcel()
         {
             List<Miembro> listmiembro = new List<Miembro>();
@@ -22,7 +28,6 @@ namespace Test.Models
 
                 
             }catch(NullReferenceException err){
-                pathexcel = "B:\\Proyectos\\Webapp-Eventos\\Test\\App_Data\\PadronAsociados.xlsx";
                 Console.WriteLine(err.ToString());
             }
             
@@ -100,7 +105,7 @@ namespace Test.Models
                 Console.WriteLine(err.ToString());
             }
 
-
+            this.totalMiembros = db.Miembro.ToList().Count;
             
         }
 
