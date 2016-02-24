@@ -69,29 +69,10 @@
                 @Html.DisplayNameFor(model => model.Estado)
             </div>
             <div class="display-field">
-                @if (Model.Estado == 1)
-                {
-                    <p>Activo</p>
-                }
-                else
-                {
-                    <p>Inactivo</p>
-                }
+                @Html.DisplayFor(model => model.Estado1.descripcion)
             </div>
 
-            <div class="display-label">
-                @Html.DisplayNameFor(model => model.Confirmo)
-            </div>
-            <div class="display-field">
-                @if (Model.Confirmo == 1)
-                {
-                    <p>Confirmado</p>
-                }
-                else
-                {
-                    <p>No</p>
-                }
-            </div>
+            
 
 
         </fieldset>

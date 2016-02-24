@@ -50,9 +50,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.First().Estado)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.First().Confirmo)
-                    </th>
+                    
                     <th></th>
                 </tr>
 
@@ -75,25 +73,9 @@
                             @Html.DisplayFor(modelItem => item.telefono)
                         </td>
                         <td>
-                            @if (item.Estado.Equals(1))
-                            {
-                                <p>Activo</p>
-                            }
-                            else
-                            {
-                                <p>Inactivo</p>
-                            }
+                           @Html.DisplayFor(modelItem => item.Estado1.descripcion)
                         </td>
-                        <td>
-                            @if (item.Confirmo.Equals(1))
-                            {
-                                <p>Confirmado</p>
-                            }
-                            else
-                            {
-                                <p>No</p>
-                            }
-                        </td>
+                       
                         <td>
                             <i class="fa fa-edit"></i><a href="/Miembro/Edit/@item.numeroCedula">Edit</a>  |
                             <i class="fa fa-list-alt"></i><a href="/Miembro/Details/@item.numeroCedula">Details</a> |

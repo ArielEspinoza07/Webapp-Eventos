@@ -4,6 +4,14 @@ go
 
 use  dbAS
 
+create table Estado(
+idEstado int identity primary key not null,
+descripcion nvarchar(50)
+)
+create table Confirmo(
+idConfirmo int identity primary key not null,
+descripcion nvarchar(50)
+)
 
 create table Perfil(
 idPerfil int identity primary key not null,
@@ -31,9 +39,8 @@ nombre nvarchar(75),
 numeroCedula nvarchar(50) primary key not null,
 correo nvarchar(50),
 telefono nvarchar(60),
-Estado int,
-Confirmo int,
-Elimino int default(0)
+Estado int not null,
+foreign key (Estado) references Estado(idEstado)
 )
 
 create table EventoMiembro(
@@ -42,8 +49,9 @@ evento int not null,
 miembro nvarchar(50),
 fecha date,
 usuario int not null,
-estado int default(0),
+confirmo int not null,
 foreign key (usuario) references Usuario(idUsuario),
 foreign key (miembro) references Miembro(numeroCedula),
-foreign key (evento) references Evento(idEvento)
+foreign key (evento) references Evento(idEvento),
+foreign key (confirmo) references Confirmo(idConfirmo)
 )

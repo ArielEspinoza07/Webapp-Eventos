@@ -169,37 +169,43 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Confirmo.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Crypto.cs" />
+    <Compile Include="Models\Estado.cs">
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Evento.cs">
-      <DependentUpon>ModeldbAs.tt</DependentUpon>
+      <DependentUpon>EventsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EventoMiembro.cs">
-      <DependentUpon>ModeldbAs.tt</DependentUpon>
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventsModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\LeerExcel.cs" />
     <Compile Include="Models\Miembro.cs">
-      <DependentUpon>ModeldbAs.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModeldbAs.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModeldbAs.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModeldbAs.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModeldbAs.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModeldbAs.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModeldbAs.edmx</DependentUpon>
+      <DependentUpon>EventsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Perfil.cs">
-      <DependentUpon>ModeldbAs.tt</DependentUpon>
+      <DependentUpon>EventsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
-      <DependentUpon>ModeldbAs.tt</DependentUpon>
+      <DependentUpon>EventsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -219,22 +225,22 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Data\PadronAsociados.xlsx" />
-    <EntityDeploy Include="Models\ModeldbAs.edmx">
+    <EntityDeploy Include="Models\EventsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModeldbAs.Designer.cs</LastGenOutput>
+      <LastGenOutput>EventsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ModeldbAs.Context.tt">
+    <Content Include="Models\EventsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModeldbAs.edmx</DependentUpon>
-      <LastGenOutput>ModeldbAs.Context.cs</LastGenOutput>
+      <DependentUpon>EventsModel.edmx</DependentUpon>
+      <LastGenOutput>EventsModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ModeldbAs.edmx.diagram">
-      <DependentUpon>ModeldbAs.edmx</DependentUpon>
+    <Content Include="Models\EventsModel.edmx.diagram">
+      <DependentUpon>EventsModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\ModeldbAs.tt">
+    <Content Include="Models\EventsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModeldbAs.edmx</DependentUpon>
-      <LastGenOutput>ModeldbAs.cs</LastGenOutput>
+      <DependentUpon>EventsModel.edmx</DependentUpon>
+      <LastGenOutput>EventsModel.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />

@@ -25,10 +25,9 @@ namespace Test.Models
         public string numeroCedula { get; set; }
         public string correo { get; set; }
         public string telefono { get; set; }
-        public Nullable<int> Estado { get; set; }
-        public Nullable<int> Confirmo { get; set; }
-        public Nullable<int> Elimino { get; set; }
+        public int Estado { get; set; }
     
+        public virtual Estado Estado1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EventoMiembro> EventoMiembro { get; set; }
     }

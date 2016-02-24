@@ -62,17 +62,10 @@ namespace Test.Models
                     }
                     else
                     {
-                        m.Estado = 0;
+                        m.Estado = 2;
                     }
 
-                    if (a["Estado 2"] == "Confirmado")
-                    {
-                        m.Confirmo = 1;
-                    }
-                    else
-                    {
-                        m.Confirmo = 0;
-                    }
+                    
 
                     listmiembro.Add(m);
                 }

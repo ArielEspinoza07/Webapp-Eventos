@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbASModelStoreContainer" CdmEntityContainer="dbASEntities">
+    <EntitySetMapping Name="Confirmo">
+      <EntityTypeMapping TypeName="dbASModel.Confirmo">
+        <MappingFragment StoreEntitySet="Confirmo">
+          <ScalarProperty Name="idConfirmo" ColumnName="idConfirmo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado">
+      <EntityTypeMapping TypeName="dbASModel.Estado">
+        <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Evento">
+      <EntityTypeMapping TypeName="dbASModel.Evento">
+        <MappingFragment StoreEntitySet="Evento">
+          <ScalarProperty Name="idEvento" ColumnName="idEvento" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventoMiembro">
+      <EntityTypeMapping TypeName="dbASModel.EventoMiembro">
+        <MappingFragment StoreEntitySet="EventoMiembro">
+          <ScalarProperty Name="idEM" ColumnName="idEM" />
+          <ScalarProperty Name="evento" ColumnName="evento" />
+          <ScalarProperty Name="miembro" ColumnName="miembro" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="confirmo" ColumnName="confirmo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Miembro">
+      <EntityTypeMapping TypeName="dbASModel.Miembro">
+        <MappingFragment StoreEntitySet="Miembro">
+          <ScalarProperty Name="idMiembro" ColumnName="idMiembro" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="numeroCedula" ColumnName="numeroCedula" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Perfil">
+      <EntityTypeMapping TypeName="dbASModel.Perfil">
+        <MappingFragment StoreEntitySet="Perfil">
+          <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="dbASModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="perfil" ColumnName="perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

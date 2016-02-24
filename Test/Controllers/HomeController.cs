@@ -28,10 +28,10 @@ namespace Test.Controllers
         public void Login(string Usuario, string Password)
         {
             dbASEntities db = new dbASEntities();
-            Session.RemoveAll();
+            
             if (Convert.ToString(Usuario).Equals("") && Convert.ToString(Password).Equals(""))
             {
-                Session["Error"] = "Debe llenar los campos Usuario y Password";
+                ViewBag.Error = "Debe llenar los campos Usuario y Password";
                 Response.Redirect("Index");
             }
             else
@@ -45,7 +45,7 @@ namespace Test.Controllers
                 if(user != null){
                     
                     Session["Usuario"] = user;
-                    Session["Succes"] = "Bienvenido " + user.nombre;
+                    ViewBag.Succes = "Bienvenido " + user.nombre;
                     Response.Redirect("Dashboard");
                 }
                 else

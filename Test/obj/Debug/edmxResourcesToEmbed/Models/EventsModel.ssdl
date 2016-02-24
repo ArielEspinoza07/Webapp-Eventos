@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbASModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Confirmo">
+    <Key>
+      <PropertyRef Name="idConfirmo" />
+    </Key>
+    <Property Name="idConfirmo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="idEstado" />
+    </Key>
+    <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="idEvento" />
+    </Key>
+    <Property Name="idEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EventoMiembro">
+    <Key>
+      <PropertyRef Name="idEM" />
+    </Key>
+    <Property Name="idEM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="evento" Type="int" Nullable="false" />
+    <Property Name="miembro" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="usuario" Type="int" Nullable="false" />
+    <Property Name="confirmo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Miembro">
+    <Key>
+      <PropertyRef Name="numeroCedula" />
+    </Key>
+    <Property Name="idMiembro" Type="nvarchar" MaxLength="50" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="75" />
+    <Property Name="numeroCedula" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="correo" Type="nvarchar" MaxLength="50" />
+    <Property Name="telefono" Type="nvarchar" MaxLength="60" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="idPerfil" />
+    </Key>
+    <Property Name="idPerfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="usuario" Type="nvarchar" MaxLength="50" />
+    <Property Name="contrasena" Type="nvarchar" MaxLength="50" />
+    <Property Name="perfil" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__EventoMie__confi__20C1E124">
+    <End Role="Confirmo" Type="Self.Confirmo" Multiplicity="1" />
+    <End Role="EventoMiembro" Type="Self.EventoMiembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Confirmo">
+        <PropertyRef Name="idConfirmo" />
+      </Principal>
+      <Dependent Role="EventoMiembro">
+        <PropertyRef Name="confirmo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventoMie__event__1FCDBCEB">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+    <End Role="EventoMiembro" Type="Self.EventoMiembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="idEvento" />
+      </Principal>
+      <Dependent Role="EventoMiembro">
+        <PropertyRef Name="evento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventoMie__miemb__1ED998B2">
+    <End Role="Miembro" Type="Self.Miembro" Multiplicity="0..1" />
+    <End Role="EventoMiembro" Type="Self.EventoMiembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Miembro">
+        <PropertyRef Name="numeroCedula" />
+      </Principal>
+      <Dependent Role="EventoMiembro">
+        <PropertyRef Name="miembro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventoMie__usuar__1DE57479">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="EventoMiembro" Type="Self.EventoMiembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="EventoMiembro">
+        <PropertyRef Name="usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Miembro__Estado__1B0907CE">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Miembro" Type="Self.Miembro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Miembro">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__perfil__164452B1">
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="idPerfil" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="perfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbASModelStoreContainer">
+    <EntitySet Name="Confirmo" EntityType="Self.Confirmo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventoMiembro" EntityType="Self.EventoMiembro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Miembro" EntityType="Self.Miembro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__EventoMie__confi__20C1E124" Association="Self.FK__EventoMie__confi__20C1E124">
+      <End Role="Confirmo" EntitySet="Confirmo" />
+      <End Role="EventoMiembro" EntitySet="EventoMiembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventoMie__event__1FCDBCEB" Association="Self.FK__EventoMie__event__1FCDBCEB">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="EventoMiembro" EntitySet="EventoMiembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventoMie__miemb__1ED998B2" Association="Self.FK__EventoMie__miemb__1ED998B2">
+      <End Role="Miembro" EntitySet="Miembro" />
+      <End Role="EventoMiembro" EntitySet="EventoMiembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventoMie__usuar__1DE57479" Association="Self.FK__EventoMie__usuar__1DE57479">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="EventoMiembro" EntitySet="EventoMiembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Miembro__Estado__1B0907CE" Association="Self.FK__Miembro__Estado__1B0907CE">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Miembro" EntitySet="Miembro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__perfil__164452B1" Association="Self.FK__Usuario__perfil__164452B1">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

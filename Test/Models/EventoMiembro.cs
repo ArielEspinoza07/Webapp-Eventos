@@ -19,8 +19,9 @@ namespace Test.Models
         public string miembro { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
         public int usuario { get; set; }
-        public Nullable<int> estado { get; set; }
+        public int confirmo { get; set; }
     
+        public virtual Confirmo Confirmo1 { get; set; }
         public virtual Evento Evento1 { get; set; }
         public virtual Miembro Miembro1 { get; set; }
         public virtual Usuario Usuario1 { get; set; }
