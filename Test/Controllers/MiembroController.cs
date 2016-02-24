@@ -46,6 +46,7 @@ namespace Test.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.Estado = db.Estado.ToList();
             return View();
         }
 
@@ -80,6 +81,7 @@ namespace Test.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Estado = db.Estado.ToList();
             return View(miembro);
         }
 
